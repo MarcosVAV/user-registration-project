@@ -28,4 +28,4 @@ Route::middleware('auth')->group(function () {
     // Route::resource('/people', UserController::class);
 });
 
-// Route::get('/array-manipulation', ArrayManipulationController::class);
+Route::get('/array-manipulation', ArrayManipulationController::class);
