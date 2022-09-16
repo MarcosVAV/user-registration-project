@@ -3,7 +3,7 @@
 - php 8.0.
 - mysql 5.7,
 - composer 2.3.3.
-- 16.17
+- node.js 16.17
 
 ## Comando para iniciar
 
