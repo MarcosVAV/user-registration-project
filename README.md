@@ -14,5 +14,9 @@
 - yarn dev ou npm run dev
 - php artisan serve
 
+###Usuário default
+
+email: admin@gmail.com
+senha: admin
 
 Obs: A tabela Usuários ficou exclusiva ao login, por isso, foi criado a tabela de Pessoas.
