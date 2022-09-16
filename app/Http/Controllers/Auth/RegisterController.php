@@ -49,6 +49,9 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        is_numeric($data['name']) ? $data['name'] = (int) $data['name'] : false;
+        is_numeric($data['username']) ? $data['username'] = (int) $data['username'] : false;
+
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:255'],
