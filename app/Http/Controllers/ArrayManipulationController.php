@@ -27,7 +27,7 @@ class ArrayManipulationController extends Controller
 
     private function printArray(?int $index = 0): void
     {
-        if ((count($this->array) - 1) < $index || $index < 0) {
+        if (!isset($this->array[$index])) {
             echo 'O index selecionado não existe!';
 
             return;
@@ -59,18 +59,14 @@ class ArrayManipulationController extends Controller
     {
         foreach ($this->array as $key => $value) {
             if ($key > 0 && $this->array[$key - 1] > $value) {
-                unset($this->array[$key - 1]);
+                array_splice($this->array, $key - 1, 1);
             }
         }
-
-        $this->array = array_values($this->array);
     }
 
     private function deleteLastPosition(): void
     {
-        $count = count($this->array);
-
-        unset($this->array[$count - 1]);
+        array_pop($this->array);
     }
 
     private function getLength(): int

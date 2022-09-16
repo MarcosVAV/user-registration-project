@@ -17,6 +17,8 @@ class PersonController extends Controller
             $operator = $request->operator;
             $age = $request->age;
 
+            $item->paramsRequest = "$operator $age";
+
             $item->year_of_birth = Carbon::parse($item->year_of_birth)->format('d-m-Y');
 
             if ($request->age) {
@@ -29,14 +31,12 @@ class PersonController extends Controller
                 }
 
                 $item->desiredAge = $operator == '>' ? $diffYears > $age : $diffYears < $age;
-
-                $item->paramsRequest = "$operator $age";
             }
 
             return $item;
         });
 
-        return view('Person.index', compact('people'));
+        return view('pages.person.index', compact('people'));
     }
 
     public function create()

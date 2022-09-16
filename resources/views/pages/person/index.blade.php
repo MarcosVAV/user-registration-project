@@ -55,31 +55,29 @@
                                 <th>{{__('District')}}</th>
                                 <th class="text-center">{{__('cep')}}</th>
                                 <th class="text-center">{{__('Year Of Birth')}}</th>
-                                @if(!($people->first()->desiredAge === null))
+                                @if(!(optional($people->first())->desiredAge === null))
                                     <th class="text-center">{{__('Result'). '( '. $people->first()->paramsRequest . ' )' }}</th>
                                 @endif
                             </tr>
                         </thead>
                         <tbody>
-                            @if(isset($people))
-                                @foreach ($people as $person)
-                                <tr>
-                                    <th class="text-center">{{$person->id}}</th>
-                                    <th>{{$person->name}}</th>
-                                    <th class="text-center">{{$person->cpf}}</th>
-                                    <th class="text-center">{{$person->gender}}</th>
-                                    <th class="text-center">{{$person->phone}}</th>
-                                    <th>{{$person->address}}</th>
-                                    <th>{{$person->address_number}}</th>
-                                    <th>{{$person->district}}</th>
-                                    <th class="text-center">{{$person->cep}}</th>
-                                    <th class="text-center">{{$person->year_of_birth}}</th>
-                                    @if(!($person->desiredAge === null))
-                                        <th class="text-center">{{$person->desiredAge ? 'Sim' : 'Não'}}</th>
-                                    @endif
-                                </tr>
-                                @endforeach
-                            @endif
+                            @foreach ($people as $person)
+                            <tr>
+                                <th class="text-center">{{$person->id}}</th>
+                                <th>{{$person->name}}</th>
+                                <th class="text-center">{{$person->cpf}}</th>
+                                <th class="text-center">{{$person->gender}}</th>
+                                <th class="text-center">{{$person->phone}}</th>
+                                <th>{{$person->address}}</th>
+                                <th>{{$person->address_number}}</th>
+                                <th>{{$person->district}}</th>
+                                <th class="text-center">{{$person->cep}}</th>
+                                <th class="text-center">{{$person->year_of_birth}}</th>
+                                @if(!($person->desiredAge === null))
+                                    <th class="text-center">{{$person->desiredAge ? 'Sim' : 'Não'}}</th>
+                                @endif
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -122,10 +120,7 @@
     {
         const keyCode = event.keyCode
 
-        if (keyCode != 37 && keyCode != 16 && keyCode != 32 && keyCode != 8 && keyCode != 48 &&
-            keyCode != 49 && keyCode != 50 && keyCode != 51 && keyCode != 52 && keyCode != 53 &&
-            keyCode != 54 && keyCode != 55 && keyCode != 56 && keyCode != 57 && keyCode != 39 &&
-            keyCode != 188 && keyCode != 190) {
+        if (![37, 16, 32, 8, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 39, 188, 190].includes(keyCode)) {
             event.preventDefault();
         }
     }
