@@ -5,7 +5,7 @@
 - composer 2.3.3.
 - node.js 16.17
 
-## Comando2 para inicialização
+## Comandos para inicialização
 
 - composer i
 - yarn ou npm i
