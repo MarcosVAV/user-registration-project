@@ -14,7 +14,7 @@
 - yarn dev ou npm run dev
 - php artisan serve
 
-###Usuário default
+### Usuário default
 
 email: admin@gmail.com
 senha: admin
