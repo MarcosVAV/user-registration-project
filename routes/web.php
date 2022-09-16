@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArrayManipulationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PersonController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +26,7 @@ Auth::routes();
 Route::middleware('auth')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-    // Route::resource('/people', UserController::class);
+    Route::resource('/people', PersonController::class);
 });
 
 Route::get('/array-manipulation', ArrayManipulationController::class);

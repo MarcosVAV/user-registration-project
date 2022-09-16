@@ -153,6 +153,7 @@ return [
     'attributes' => [
         'address'   => 'endereço',
         'age'       => 'idade',
+        'operator'  => 'operador',
         'body'      => 'conteúdo',
         'cell'      => 'celular',
         'city'      => 'cidade',
